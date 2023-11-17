@@ -17,4 +17,6 @@ class ProductFacade
   end
 end
 
-p ProductFacade.new.stringify_product_info
+# p ProductFacade.new.stringify_product_info
+# p CSV.open "/Users/kdhubbard/mod_5/hubbard_smarterxassessment/smarterx_data_sample.csv", headers: true, header_converters: :symbol
+# p File.read("/Users/kdhubbard/mod_5/hubbard_smarterxassessment/smarterx_data_sample.csv")

@@ -1,3 +1,4 @@
+
 class Product
 
   attr_reader :product_name,

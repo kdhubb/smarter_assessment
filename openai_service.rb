@@ -3,9 +3,7 @@ require './product_facade.rb'
 require './product.rb'
 
 class OpenAIService 
-  def categorize_prompt(csv)
-  
-    prompt = 
+  def categorize_prompt(product_data)
     [
       {
         "role": "system",
@@ -21,14 +19,13 @@ class OpenAIService
       },
       {
           "role": "user",
-          "content": "#{product_info}"
+          "content": "#{product_data}"
     }
     ]
-    p product_info[0]["product_name"]
   end
 
   def conn
-    params = 
+    params = categorize_prompt(ProductFacade.new.stringify_product_info)
     Faraday.post(url: 'https://api.openai.com/v1/chat/completions') do |faraday|
       faraday.header['Authorization'] = ENV['OPENAI_KEY']
       faraday.body = JSON.generate(params)
@@ -46,4 +43,4 @@ class OpenAIService
 
 end
 
-OpenAIService.new.categorize_prompt("/Users/kdhubbard/mod_5/hubbard_smarterxassessment/smarterx_data_sample.csv")
+# OpenAIService.new.categorize_prompt("/Users/kdhubbard/mod_5/hubbard_smarterxassessment/smarterx_data_sample.csv")
