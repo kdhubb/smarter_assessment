@@ -1,11 +1,10 @@
 require 'csv'
+require './product_facade.rb'
+require './product.rb'
 
 class OpenAIService 
   def categorize_prompt(csv)
-    product_info = CSV.parse(File.read(csv), headers: true)
-    product_info.each do |product|
-      product["product_name"] +
-    end
+  
     prompt = 
     [
       {
